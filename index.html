@@ -1,0 +1,73 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV CRUD APPLICATION</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body ng-app="csvCrudApp" ng-controller="MainController">
+    <div class="container">
+      <h1>CSV CRUD APPLICATION</h1>
+      <form ng-submit="addData()">
+        <input
+          type="text"
+          ng-model="newData.id"
+          placeholder="ID"
+          required
+        />
+        <input
+          type="text"
+          ng-model="newData.name"
+          placeholder="Name"
+          required
+        />
+        <input
+          type="text"
+          ng-model="newData.age"
+          placeholder="Age"
+          required
+        />
+        <input
+          type="text"
+          ng-model="newData.email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="text"
+          ng-model="newData.location"
+          placeholder="Location"
+          required
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Location</th>
+          <th>Actions</th>
+        </tr>
+        <tr ng-repeat="data in allData">
+          <td>{{ data.id }}</td>
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.location }}</td>
+          <td>
+            <button ng-click="updateData(data)">Update</button>
+            <button ng-click="deleteData(data)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
